@@ -39,3 +39,8 @@ before laboratory earthquakes occur
 Source: https://www.kaggle.com/c/LANL-Earthquake-Prediction#evaluation 
 <br>
 Metric(s): Mean Absolute Error
+
+At the time of submission, the score was at top 1% of kaggle public leaderboard. As it is public lb the leaderboard positions might change.
+
+![latest__score (2)](https://user-images.githubusercontent.com/36497538/58366132-82e57180-7eeb-11e9-929a-9aee90beaf57.PNG)
+
