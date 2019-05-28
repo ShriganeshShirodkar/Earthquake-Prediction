@@ -104,6 +104,5 @@ XGB gives the highest score of 1.314 which is currently at the 27th position at 
 At the time of submission, the score was at top 1% of kaggle public leaderboard. As it is public lb the leaderboard positions might change.
 
 <p align="center">
-  <img src="Images/latest__score27 (2).png" width="500" title="n">
-</p>
-
+<img src="https://user-images.githubusercontent.com/36497538/58457650-d272aa00-8144-11e9-9e2c-43a6c61fdb85.PNG" width="700">
+ </p>
