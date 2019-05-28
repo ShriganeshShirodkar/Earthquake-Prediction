@@ -38,6 +38,19 @@ Source: https://www.kaggle.com/c/LANL-Earthquake-Prediction#evaluation
 <br>
 Metric(s): Mean Absolute Error
 
+I have used several kernels from kaggle and ideas from discussion threads . 
+
+<br>
+https://www.kaggle.com/vettejeep/masters-final-project-model-lb-1-392 
+<br>
+https://www.kaggle.com/allunia/shaking-earth 
+<br>
+https://www.kaggle.com/gpreda/lanl-earthquake-eda-and-prediction
+<br>
+https://www.kaggle.com/c/LANL-Earthquake-Prediction/discussion
+<br>
+https://www.kaggle.com/c/LANL-Earthquake-Prediction/kernels
+
 ## Exploratory Data Analysis
 1. It is given that the earthquake occurs when the time_to_failure hits 0, hence we can count that there are 16 occurences of earthquake in the whole training data
 
