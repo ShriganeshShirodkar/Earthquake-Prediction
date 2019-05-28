@@ -52,22 +52,18 @@ Metric(s): Mean Absolute Error
 </p>
 
 3. If we plot the data for 1000000 points we can see that the graph is continously decreasing but if we zoom into it we can see that the time_to_failure stops decreasing for a while when it reaches ~4000 samples.
-<br>
 It is due to the fact that the data is recorded in bins of 4096 samples and the recording device stops for 12 microseconds after each bin.
-<br>
 
 <p align="center">
   <img src="Images/eqp6.png" width="600" title="">
 </p>
 
-
+## Featurization
 Since the test data has 150000 samples in each segment, we convert the train data into samples of size 150000 and hence we get 4194 samples.
 <br>
 Since the datasize is too small, We split the 6.2m train data into 6 slices, take 4000 random samples,each of size 150000 from each slice. Hence now we have 24000 training data. 
 It takes huge time to run therefore we use multiprocessing.
 
-
-## Featurization
 1> Statistical Features: Quantiles, mean, max/min, Sta/lta, std, skew, kurtosis, exponential moving averages, moving average, rolling std, rolling mean etc
 
 2> Signal Processing features: Low pass, high pass fiters, FFT, peaks, entropy, hjorth parameters.
