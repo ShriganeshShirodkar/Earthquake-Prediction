@@ -93,7 +93,7 @@ Light GBM, to its advantage, can handle the large size of data and takes lower m
 </p>
 
 ### XGBOOST
-Since we want to maximize the score, xgboost has demonstrated successful for kaggle competitions. With n_estimators as 800, max_depth of 6 and objective function as gamma we were able to reach a mae of 1.314. We can see below that the model is not overfitting to train data and is generalising well.
+Since we want to maximize the score, xgboost has demonstrated successful for kaggle competitions. We were able to reach a mae of 1.314. We can see below that the model is not overfitting to train data and is generalising well.
 
 <p align="center">
   <img src="Images/eqp4.png" width="450" title="Train Distibution">
