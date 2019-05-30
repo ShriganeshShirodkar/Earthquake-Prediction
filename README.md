@@ -1,5 +1,23 @@
 <img width="950" alt="earthquake img" src="https://user-images.githubusercontent.com/36497538/56088846-64309b80-5ea6-11e9-9092-c19c3062c495.png">
 
+## Table of Contents:
+
+**1. Introduction**
+
+**2. Data Overview**
+
+**3. Data Preprocessing**
+
+**4. Feature Extraction**
+
+**5. Machine Learning Models**
+
+**6. Feature Selection**
+
+**7. Results**
+
+## Introduction
+
 Predicting the time remaining before laboratory earthquakes occur from real-time seismic data.
 
 ### Description
@@ -27,6 +45,10 @@ train.csv contains 2 columns:
 - acoustic_data - the seismic signal [int16] 
 - time_to_failure - the time (in seconds) until the next laboratory earthquake [float64]
 - Number of rows in Train.csv = 629145480
+
+<p align="center">
+  <img src="Images/data1.PNG" width="300" title="Train Distibution">
+</p>
 
 ### Type of Machine Learning Problem
 It is a Regression problem, for a given chunk of seismic data we need to predict the time remaining
