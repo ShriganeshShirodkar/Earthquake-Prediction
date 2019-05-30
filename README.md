@@ -40,16 +40,11 @@ Metric(s): Mean Absolute Error
 
 I have used several kernels from kaggle and ideas from discussion threads . 
 
-<br>
 https://www.kaggle.com/vettejeep/masters-final-project-model-lb-1-392 
 <br>
 https://www.kaggle.com/allunia/shaking-earth 
 <br>
 https://www.kaggle.com/gpreda/lanl-earthquake-eda-and-prediction
-<br>
-https://www.kaggle.com/c/LANL-Earthquake-Prediction/discussion
-<br>
-https://www.kaggle.com/c/LANL-Earthquake-Prediction/kernels
 
 ## Exploratory Data Analysis
 1. It is given that the earthquake occurs when the time_to_failure hits 0, hence we can count that there are 16 occurences of earthquake in the whole training data
@@ -71,15 +66,69 @@ It is due to the fact that the data is recorded in bins of 4096 samples and the 
   <img src="Images/eqp6.png" width="600" title="">
 </p>
 
-## Featurization
+## Data Preprocessing
+
 Since the test data has 150000 samples in each segment, we convert the train data into samples of size 150000 and hence we get 4194 samples.
 <br>
 Since the datasize is too small, We split the 6.2m train data into 6 slices, take 4000 random samples,each of size 150000 from each slice. Hence now we have 24000 training data. 
 It takes huge time to run therefore we use multiprocessing.
 
-1> Statistical Features: Quantiles, mean, max/min, Sta/lta, std, skew, kurtosis, exponential moving averages, moving average, rolling std, rolling mean etc
+We divide the raw data into 6 slices using the following function. We save each of the 6 slices of raw data into csv files for furthur processing.
+```
+def split_raw_data():
+```
 
-2> Signal Processing features: Low pass, high pass fiters, FFT, peaks, entropy, hjorth parameters.
+We then create 4000 random indices for each slice using random sampling. Also we save the indices into a file.
+```
+def build_rnd_idxs(): 
+```
+
+The below function creates features for each of the 4000 datapoints in each slice. proc id is the process id. It might take a day even with multiprocessing.
+```
+def build_fields(proc_id)
+```
+
+We now use python pool for multiprocessing. The run_mp_build uses 6 workers to create features parallelly.
+```
+def run_mp_build():
+ ```
+    
+We join the 6 slices into one train data which now has 24000 datapoints along with coressponding 24000 output.
+```
+def join_mp_build():
+```
+
+We scale the features using standardisation.
+```
+def scale_fields():
+```
+
+
+## Feature Extraction
+
+1> Statistical Features:
+
+* Mean
+* Median
+* Kurtosis
+* Skew: skewness of the frequency domain signal
+* Moving Averages
+* Exponential Moving Averages
+* Quantiles
+* Rolling features: we calculate statistical values like mean for different windows.
+* Trend: gives the slope of the signal
+
+2> Signal Processing features:
+
+* Low Pass Filters: Removes the high frequency components
+* High Pass Filters: Removes low frequency components
+* Band Pass Filters: allows signals between two specific frequencies to pass.
+* FFT: we use fourier frequencies.
+* Peaks: Returns the number of values above threshold
+* hjorth parameters: Returns the activity, mobility and complexity of the signal.
+* Entropy: signal entropy. 
+
+
 
 ## Machine Learning Models
 
@@ -106,7 +155,6 @@ Stacking models are very powerful and since interpretability is not important, w
 SKlearn selectkbest: selectkbest selects top features and gives us the feature scores. we use top 300 features and apply LGBM and compare the results. We also tried out autoencoders, pearson correlation to reduce the dimensions but the performance dropped.
 We can see that rolling features and peaks are the most important features.
 
-<p align="center">
   <img src="Images/eqp5.png" width="450" title=" Distibution">
 </p>
 
@@ -123,4 +171,25 @@ At the time of submission, the score was at top 1% of kaggle public leaderboard.
 <p align="center">
 <img src="https://user-images.githubusercontent.com/36497538/58457650-d272aa00-8144-11e9-9e2c-43a6c61fdb85.PNG" width="700">
  </p>
+ 
+ ## Future Work
+ 
+ 1. We could use newer and powerful models like Catboost.
+ 2. Use KS Test, PCA as feature selection technique.
+
+## References
+
+https://www.kaggle.com/vettejeep/masters-final-project-model-lb-1-392 
+<br>
+https://www.kaggle.com/allunia/shaking-earth 
+<br>
+https://www.kaggle.com/gpreda/lanl-earthquake-eda-and-prediction
+<br>
+https://www.kaggle.com/c/LANL-Earthquake-Prediction/discussion
+<br>
+https://www.kaggle.com/c/LANL-Earthquake-Prediction/kernels
+<br>
+https://www.appliedaicourse.com/
+<br>
+https://www.youtube.com/watch?v=TffGdSsWKlA
 
