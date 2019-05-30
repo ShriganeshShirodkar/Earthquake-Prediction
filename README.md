@@ -6,18 +6,18 @@ Predicting the time remaining before laboratory earthquakes occur from real-time
 Forecasting earthquakes is one of the most important problems in Earth science because of their
 devastating consequences. Current scientific studies related to earthquake forecasting focus on
 three key points: when the event will occur, where it will occur, and how large it will be.
+
 The goal of the challenge is to capture the physical state of the laboratory fault and how close
-it is from failure from a snapshot of the seismic data it is emitting. You will have to build a model
-that predicts the time remaining before failure from a chunk of seismic data, like we have done in
-our first paper above on easier data.
+it is from failure from a snapshot of the seismic data it is emitting. We will have to build a model
+that predicts the time remaining before failure from a chunk of seismic data.
 
 ### Problem Statement:
 To predict the time remaining before laboratory earthquakes occur from real-time seismic data.
 Sources:
 <br>
-https://www.kaggle.com/c/LANL-Earthquake-Prediction
+[Kaggle](https://www.kaggle.com/c/LANL-Earthquake-Prediction)
 <br>
-https://www.kaggle.com/c/LANL-Earthquake-Prediction/discussion
+[Kaggle Discussion](https://www.kaggle.com/c/LANL-Earthquake-Prediction/discussion)
 
 ### Data
 train.csv - A single, continuous training segment of experimental data.
@@ -38,13 +38,19 @@ Source: https://www.kaggle.com/c/LANL-Earthquake-Prediction#evaluation
 <br>
 Metric(s): Mean Absolute Error
 
+It is the average absolute difference between the actual and predicted values.
+
+<p align="center">
+  <img src="Images/mae.png" width="400" title="Train Distibution">
+</p>
+
 I have used several kernels from kaggle and ideas from discussion threads . 
 
-https://www.kaggle.com/vettejeep/masters-final-project-model-lb-1-392 
+[vettejeep kernel](https://www.kaggle.com/vettejeep/masters-final-project-model-lb-1-392)
 <br>
-https://www.kaggle.com/allunia/shaking-earth 
+[allunia kernel](https://www.kaggle.com/allunia/shaking-earth)
 <br>
-https://www.kaggle.com/gpreda/lanl-earthquake-eda-and-prediction
+[gpreda kernel](https://www.kaggle.com/gpreda/lanl-earthquake-eda-and-prediction)
 
 ## Exploratory Data Analysis
 1. It is given that the earthquake occurs when the time_to_failure hits 0, hence we can count that there are 16 occurences of earthquake in the whole training data
@@ -155,6 +161,7 @@ Stacking models are very powerful and since interpretability is not important, w
 SKlearn selectkbest: selectkbest selects top features and gives us the feature scores. we use top 300 features and apply LGBM and compare the results. We also tried out autoencoders, pearson correlation to reduce the dimensions but the performance dropped.
 We can see that rolling features and peaks are the most important features.
 
+<p>
   <img src="Images/eqp5.png" width="450" title=" Distibution">
 </p>
 
@@ -170,26 +177,26 @@ At the time of submission, the score was at top 1% of kaggle public leaderboard.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/36497538/58457650-d272aa00-8144-11e9-9e2c-43a6c61fdb85.PNG" width="700">
- </p>
- 
- ## Future Work
+</p>
+
+## Future Work
  
  1. We could use newer and powerful models like Catboost.
  2. Use KS Test, PCA as feature selection technique.
 
 ## References
 
-https://www.kaggle.com/vettejeep/masters-final-project-model-lb-1-392 
+[vettejeep kernel](https://www.kaggle.com/vettejeep/masters-final-project-model-lb-1-392)
 <br>
-https://www.kaggle.com/allunia/shaking-earth 
+[allunia kernel](https://www.kaggle.com/allunia/shaking-earth)
 <br>
-https://www.kaggle.com/gpreda/lanl-earthquake-eda-and-prediction
+[gpreda kernel](https://www.kaggle.com/gpreda/lanl-earthquake-eda-and-prediction)
 <br>
-https://www.kaggle.com/c/LANL-Earthquake-Prediction/discussion
+[kaggle discussion](https://www.kaggle.com/c/LANL-Earthquake-Prediction/discussion)
 <br>
-https://www.kaggle.com/c/LANL-Earthquake-Prediction/kernels
+[kaggle kernels](https://www.kaggle.com/c/LANL-Earthquake-Prediction/kernels)
 <br>
-https://www.appliedaicourse.com/
+[AppliedAICourse](https://www.appliedaicourse.com/)
 <br>
-https://www.youtube.com/watch?v=TffGdSsWKlA
+[Siraj Raval Youtube](https://www.youtube.com/watch?v=TffGdSsWKlA)
 
