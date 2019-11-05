@@ -67,12 +67,8 @@ It is the average absolute difference between the actual and predicted values.
 </p>
 
 ## Approach
-1. EDA/Preprocessing: Since the test data has 150000 samples in each segment, we convert the train data into samples of size 150000 and hence we get 4194 samples.
-<br>
-Since the datasize is too small, We split the 6.2m train data into 6 slices, take 4000 random samples,each of size 150000 from each slice. Hence now we have 24000 training data. 
-It takes huge time to run therefore we use multiprocessing.
-<br>
-We divide the raw data into 6 slices using the following function. We save each of the 6 slices of raw data into csv files for furthur processing. We join the 6 slices into one train data which now has 24000 datapoints along with coressponding 24000 output.
+1. EDA/Preprocessing: Since the test data has 150000 samples in each segment, we convert the train data into samples of size 150000 and hence we get 4194 samples.Since the datasize is too small, We split the 6.2m train data into 6 slices, take 4000 random samples,each of size 150000 from each slice. Hence now we have 24000 training data. 
+It takes huge time to run therefore we use multiprocessing. We divide the raw data into 6 slices using the following function. We save each of the 6 slices of raw data into csv files for furthur processing. We join the 6 slices into one train data which now has 24000 datapoints along with coressponding 24000 output.
 
 2. Feature Engineering: We use many statistical features like mean, kurtosis and signal processing features like, entropy, fft.
 
@@ -217,18 +213,20 @@ At the time of submission, the score was at top 1% of kaggle public leaderboard.
 
 ## Conclusion:
 <br>
-1. We do EDA and find some insights from the data
+1. We do EDA and find some insights from the data.
+<br>
 2. Since the test data has 150000 samples in each segment, we convert the train data into samples of size 150000 and hence we get 4194 samples.
-
+<br>
 3. Since the datasize is too small, We split the 6.2m train data into 6 slices, take 4000 random samples,each of size 150000 from each slice. Hence now we have 24000 training data. 
 It takes huge time to run therefore we use multiprocessing.
-
+<br>
 4.We divide the raw data into 6 slices using the following function. We save each of the 6 slices of raw data into csv files for furthur processing. We join the 6 slices into one train data which now has 24000 datapoints along with coressponding 24000 output.
-
+<br>
 5. We then use many statistical features like mean, kurtosis and signal processing features like, entropy, fft.
-
+<br>
 6. We then apply Lgbm and xgboost and compare them and tune the hyperparameters to get the better results.
 We use MAE as the metric. We can see that we get the best results as 1.34 with lgbm model.
+<br>
 
 ## Future Work
  
