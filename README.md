@@ -66,6 +66,20 @@ It is the average absolute difference between the actual and predicted values.
   <img src="Images/mae.png" width="400" title="Train Distibution">
 </p>
 
+## Approach
+1. EDA/Preprocessing: Since the test data has 150000 samples in each segment, we convert the train data into samples of size 150000 and hence we get 4194 samples.
+<br>
+Since the datasize is too small, We split the 6.2m train data into 6 slices, take 4000 random samples,each of size 150000 from each slice. Hence now we have 24000 training data. 
+It takes huge time to run therefore we use multiprocessing.
+<br>
+We divide the raw data into 6 slices using the following function. We save each of the 6 slices of raw data into csv files for furthur processing. We join the 6 slices into one train data which now has 24000 datapoints along with coressponding 24000 output.
+
+2. Feature Engineering: We use many statistical features like mean, kurtosis and signal processing features like, entropy, fft.
+
+3. Machine Learning Models: We use Lgbm and xgboost and compare them and tune the hyperparameters to get the better results.
+We use MAE as the metric
+
+
 I have used several kernels from kaggle and ideas from discussion threads . 
 
 [vettejeep kernel](https://www.kaggle.com/vettejeep/masters-final-project-model-lb-1-392)
@@ -201,6 +215,21 @@ At the time of submission, the score was at top 1% of kaggle public leaderboard.
 <img src="https://user-images.githubusercontent.com/36497538/58457650-d272aa00-8144-11e9-9e2c-43a6c61fdb85.PNG" width="700">
 </p>
 
+## Conclusion:
+<br>
+1. We do EDA and find some insights from the data
+2. Since the test data has 150000 samples in each segment, we convert the train data into samples of size 150000 and hence we get 4194 samples.
+
+3. Since the datasize is too small, We split the 6.2m train data into 6 slices, take 4000 random samples,each of size 150000 from each slice. Hence now we have 24000 training data. 
+It takes huge time to run therefore we use multiprocessing.
+
+4.We divide the raw data into 6 slices using the following function. We save each of the 6 slices of raw data into csv files for furthur processing. We join the 6 slices into one train data which now has 24000 datapoints along with coressponding 24000 output.
+
+5. We then use many statistical features like mean, kurtosis and signal processing features like, entropy, fft.
+
+6. We then apply Lgbm and xgboost and compare them and tune the hyperparameters to get the better results.
+We use MAE as the metric. We can see that we get the best results as 1.34 with lgbm model.
+
 ## Future Work
  
  1. We could use newer and powerful models like Catboost.
@@ -217,8 +246,6 @@ At the time of submission, the score was at top 1% of kaggle public leaderboard.
 [kaggle discussion](https://www.kaggle.com/c/LANL-Earthquake-Prediction/discussion)
 <br>
 [kaggle kernels](https://www.kaggle.com/c/LANL-Earthquake-Prediction/kernels)
-<br>
-[AppliedAICourse](https://www.appliedaicourse.com/)
 <br>
 [Siraj Raval Youtube](https://www.youtube.com/watch?v=TffGdSsWKlA)
 
